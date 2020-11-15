@@ -10,7 +10,7 @@ layout: shape.liquid
 <div class="date">
 <em>{{ bouquin.data.date | date: "%Y ∙ %m" }}</em>
 </div>
-<div class="rating-system">
+  <div class="rating-system">
 {% for rate in (1..5) %}
 {% if rate <= bouquin.data.rating %}
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -18,9 +18,7 @@ layout: shape.liquid
 </svg>
 {% endif %}
 {% endfor %}
-
 </div>
-
 </li>
 {% endfor %}
 </ul>

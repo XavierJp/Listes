@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "eslint-plugin-babel",
+    "prettier"
+  ]
+}
