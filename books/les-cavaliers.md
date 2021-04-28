@@ -1,7 +1,7 @@
 ---
 title: Les cavaliers 🐎🏇🏻🐪
 date: 2020-05-30
-rating: 5
+rating: 4
 author: Joseph Kessel
 ---
 
