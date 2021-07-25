@@ -9,4 +9,4 @@ Les premiers temps du livre sont lents et longs. Le récit n'avance pas, le pers
 
 Et puis lentement, le récit s'accélère. Les protagonistes se révèlent. Le vrai voyage commence. Certes, Ouroz est toujours détestable, mais Mokkhi et Zéré ne valent pas mieux. 
 
-Cette deuxième partie du livre est passionnante. Et petit à petit, malgré moi, je me suis cru là-bas, en Afghanistan, à me battre au côté d'Ouroz.
+La deuxième partie du livre est passionnante. Petit à petit, malgré moi, je me suis cru là-bas, en Afghanistan, à me battre aux côtés d'Ouroz.
