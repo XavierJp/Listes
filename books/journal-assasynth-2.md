@@ -1,5 +1,5 @@
 ---
-title: Journal d'un AssaSynth 2 : Schémas artificiels
+title: "Journal d’un AssaSynth 2 : Schémas artificiels"
 date: 2022-01-17
 rating: 5
 author: Martha Wells
