@@ -1,7 +1,7 @@
 ---
 title: L'Homme qui plantait des arbres
 date: 2022-01-28
-rating: 
+rating: 5
 author: Jean Giono
 ---
 
