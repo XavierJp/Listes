@@ -1,5 +1,5 @@
 ---
-title: Journal d’un AssaSynth 3 \: Cheval de Troie
+title: "Journal d’un AssaSynth 3 : Cheval de Troie"
 date: 2022-07-24
 rating: 4
 author: Martha Wells
