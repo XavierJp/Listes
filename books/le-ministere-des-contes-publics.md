@@ -1,7 +1,7 @@
 ---
 title: Le ministère des contes publics
 date: 2023-04-01
-rating: 0
+rating: 1
 author: Sandra Lucbert
 ---
 
