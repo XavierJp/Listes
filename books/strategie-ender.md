@@ -1,6 +1,6 @@
 ---
 title: La stratégie Ender
-date: 2020-04-28
+date: 2023-04-28
 rating: 5
 author: Orson Scott Card
 ---
