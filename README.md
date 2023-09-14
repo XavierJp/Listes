@@ -1,5 +1,7 @@
 # Tiny Books & Reading blog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95b0d90c-1a3c-4197-b81c-f6a131a0cefb/deploy-status)](https://app.netlify.com/sites/lectures/deploys)
+
 ## Run blog
 
 ``` dev
