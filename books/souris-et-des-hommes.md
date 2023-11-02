@@ -1,8 +1,8 @@
 ---
-title: f
-date: 2020-04-28
+title: Des souris et des hommes
+date: 2023-10-02
 rating: 5
-author: Paul Bismuth
+author: John Steinbeck
 ---
 
-Bla bla
+Récit poignant d’une amitié improbable, touchante et tragique.
