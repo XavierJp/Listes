@@ -1,6 +1,6 @@
 ---
 title: Des souris et des hommes
-date: 2023-10-02
+date: 2023-11-02
 rating: 5
 author: John Steinbeck
 ---
