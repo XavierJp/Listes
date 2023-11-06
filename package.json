@@ -1,16 +1,16 @@
 {
-  "name": "Lecture.s",
+  "name": "Listes",
   "version": "1.0.0",
   "main": "_site/books/index.js",
-  "repository": "git@github.com:XavierJp/Lecture.s.git",
+  "repository": "git@github.com:XavierJp/Listes.git",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "dev": "./node_modules/.bin/eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.5.1"
+    "@11ty/eleventy": "^2.0.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3"
   }
 }
