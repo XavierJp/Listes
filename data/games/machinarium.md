@@ -5,4 +5,4 @@ rating: 5
 playtime: 2h
 ---
 
-Point & clic avec de petites énigmes, rigolo et décalé.
+Point & clic avec de petites énigmes, rigolo et décalé, belle DA.
