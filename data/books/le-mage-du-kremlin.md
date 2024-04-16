@@ -1,6 +1,6 @@
 ---
 title: Le mage du Kremlin
-date: 2024-04-23
+date: 2024-03-23
 rating: 4
 author: Giuliano da Empoli
 ---
