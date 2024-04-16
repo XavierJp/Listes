@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy({ "robots.txt": "/robots.txt" });
 
   eleventyConfig.addShortcode("year", function () {
     const d = new Date();
