@@ -5,4 +5,4 @@ rating: 5
 playtime: 2h
 ---
 
-Une sorte de mini RPG, 100% détente et good vibes.
+Un mini RPG, 100% détente et good vibes.
