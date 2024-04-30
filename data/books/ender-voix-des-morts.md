@@ -5,6 +5,6 @@ rating: 5
 author: Orson Scott
 ---
 
-J’avez beaucoup aimé "La stratégie Ender", mais j’avais été un peu déçu par son côté initiatique sans nuances.
+J’avais beaucoup aimé "La stratégie Ender", tout en étant un peu déçu par son côté initiatique sans nuances.
 
-La voix des morts amène une sensibilité, une complexité et des thèmes originaux (xénobiologie, xénosociologie) qui en font un gros coup de coeur.
+La voix des morts amène plus de complexité et de sensibilité, ainsi que des thèmes originaux (xénobiologie, xénosociologie). Un gros coup de coeur.
