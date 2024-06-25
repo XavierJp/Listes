@@ -1,5 +1,5 @@
 ---
-title: Airships : Conquer the Skies
+title: "Airships : Conquer the Skies"
 date: 2024-06-01
 rating: 4.5
 playtime: 9h
