@@ -1,6 +1,6 @@
 ---
 title: Saga d'Erik le Rouge
-date: 2025-06-26
+date: 2024-06-26
 rating: 5
 author: Un clerc islandais du XIIIe siècle
 ---
