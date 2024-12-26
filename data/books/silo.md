@@ -1,8 +1,8 @@
 ---
-title: nouveau livre 📖
-date: 2020-04-28
-rating: 5
-author: Paul Bismuth
+title: Silo
+date: 2024-12-24
+rating: 4
+author: Hugh Howey
 ---
 
-Bla bla
+Très bonne lecture de SF. Première moitié lente, peut-être parce que j'avais déjà vu la série. 
