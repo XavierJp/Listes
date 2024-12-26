@@ -5,4 +5,4 @@ rating: 5
 author: Alexandre Soljenitsyne
 ---
 
-...
+À recommander.
