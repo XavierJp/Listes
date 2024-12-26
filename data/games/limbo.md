@@ -1,7 +1,7 @@
 ---
 title: Limbo
 date: 2024-10-03
-rating: 4
+rating: 5
 playtime: 4h
 ---
 
