@@ -57,7 +57,7 @@ body > div.footer {
 
 p {
   line-height: 1.9rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 a {
@@ -231,7 +231,7 @@ h1.bouquin {
   width: 100%;
   box-sizing: border-box;
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 10px;
   border: 1px solid #001f39;
   border-radius: 4px;
@@ -249,7 +249,7 @@ h1.bouquin {
 .toggle-btn {
   flex: 1;
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 10px;
   border: 1px solid #001f39;
   background: #fff;
@@ -285,7 +285,7 @@ h1.bouquin {
 }
 .submit-btn {
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   width: 100%;
   padding: 12px;
