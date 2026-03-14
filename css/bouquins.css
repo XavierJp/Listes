@@ -127,10 +127,14 @@ ul li,
 
 ul li .title {
   flex-grow: 1;
+  min-width: 0;
 }
 ul li .title h2 {
   font-size: 1rem;
   padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 ul li .date em {
   padding-right: 25px;
@@ -232,7 +236,7 @@ h1.bouquin {
   font-family: "Lora", serif;
   font-size: 1rem;
   padding: 10px;
-  border: 1px dashed #001f39;
+  border: 1px solid #001f39;
   border-radius: 4px;
   background: #fff;
   color: #001f39;
@@ -250,7 +254,7 @@ h1.bouquin {
   font-family: "Lora", serif;
   font-size: 1rem;
   padding: 10px;
-  border: 1px dashed #001f39;
+  border: 1px solid #001f39;
   background: #fff;
   color: #001f39;
   cursor: pointer;
@@ -290,7 +294,7 @@ h1.bouquin {
   padding: 12px;
   background: #001f39;
   color: #fff;
-  border: 1px dashed #fff;
+  border: 1px solid #fff;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
