@@ -21,3 +21,26 @@ layout: shape.liquid
 <div class="content">
   {{ content }}
 </div>
+<div class="edit-link">
+  <a id="edit-btn" href="/ajouter">modifier</a>
+</div>
+<script>
+(function() {
+  var data = {
+    edit: '1',
+    slug: '{{ page.fileSlug }}',
+    title: '{{ title | escape }}',
+    rating: '{{ rating }}',
+    date: '{{ date | date: "%Y-%m-%d" }}',
+    type: '{% if author %}book{% else %}game{% endif %}',
+    author: '{{ author | default: "" | escape }}',
+    playtime: '{{ playtime | default: "" | escape }}'
+  };
+  // Get review text from .content, stripping HTML tags
+  var contentEl = document.querySelector('.content');
+  var reviewText = contentEl ? contentEl.textContent.trim() : '';
+  var params = new URLSearchParams(data);
+  if (reviewText) params.set('review', reviewText);
+  document.getElementById('edit-btn').href = '/ajouter?' + params.toString();
+})();
+</script>

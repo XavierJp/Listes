@@ -1,0 +1,146 @@
+---
+layout: shape.liquid
+---
+
+<div class="menu"><a href="/">← retour à la liste</a></div>
+<h1 class="bouquin" id="form-title">Ajouter</h1>
+
+<form id="review-form" class="review-form">
+  <div class="form-group">
+    <label for="type">Type</label>
+    <div class="toggle-group">
+      <button type="button" class="toggle-btn active" data-type="book">Livre</button>
+      <button type="button" class="toggle-btn" data-type="game">Jeu</button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="title">Titre</label>
+    <input type="text" id="title" name="title" required placeholder="Ex: Hyperion" />
+  </div>
+
+  <div class="form-group" id="author-group">
+    <label for="author">Auteur</label>
+    <input type="text" id="author" name="author" placeholder="Ex: Dan Simmons" />
+  </div>
+
+  <div class="form-group" id="playtime-group" style="display:none;">
+    <label for="playtime">Temps de jeu</label>
+    <input type="text" id="playtime" name="playtime" placeholder="Ex: 40h" />
+  </div>
+
+  <div class="form-group">
+    <label>Note</label>
+    <div class="star-rating" id="star-rating">
+      <button type="button" class="star" data-value="1">&#9733;</button>
+      <button type="button" class="star" data-value="2">&#9733;</button>
+      <button type="button" class="star" data-value="3">&#9733;</button>
+      <button type="button" class="star" data-value="4">&#9733;</button>
+      <button type="button" class="star" data-value="5">&#9733;</button>
+    </div>
+    <input type="hidden" id="rating" name="rating" value="3" />
+  </div>
+
+  <div class="form-group">
+    <label for="review">Avis <span class="optional">(optionnel)</span></label>
+    <textarea id="review" name="review" rows="4" placeholder="Quelques mots sur cette lecture / ce jeu..."></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn" id="submit-btn">Ouvrir dans GitHub</button>
+</form>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var isEdit = params.get('edit') === '1';
+  var editSlug = params.get('slug') || '';
+  var currentType = params.get('type') || 'book';
+  var currentRating = parseInt(params.get('rating')) || 3;
+
+  // Update page title for edit mode
+  if (isEdit) {
+    document.getElementById('form-title').textContent = 'Modifier';
+    document.getElementById('submit-btn').textContent = 'Modifier dans GitHub';
+  }
+
+  // Type toggle
+  var toggleBtns = document.querySelectorAll('.toggle-btn');
+  function setType(type) {
+    currentType = type;
+    toggleBtns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-type') === type);
+    });
+    document.getElementById('author-group').style.display = type === 'book' ? '' : 'none';
+    document.getElementById('playtime-group').style.display = type === 'game' ? '' : 'none';
+  }
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setType(btn.getAttribute('data-type'));
+    });
+  });
+  setType(currentType);
+
+  // Star rating
+  var stars = document.querySelectorAll('.star');
+  function updateStars(val) {
+    currentRating = val;
+    document.getElementById('rating').value = val;
+    stars.forEach(function(s) {
+      s.classList.toggle('selected', parseInt(s.getAttribute('data-value')) <= val);
+    });
+  }
+  stars.forEach(function(s) {
+    s.addEventListener('click', function() {
+      updateStars(parseInt(s.getAttribute('data-value')));
+    });
+  });
+  updateStars(currentRating);
+
+  // Pre-fill fields in edit mode
+  if (isEdit) {
+    if (params.get('title')) document.getElementById('title').value = params.get('title');
+    if (params.get('author')) document.getElementById('author').value = params.get('author');
+    if (params.get('playtime')) document.getElementById('playtime').value = params.get('playtime');
+    if (params.get('review')) document.getElementById('review').value = params.get('review');
+  }
+
+  // Form submit
+  document.getElementById('review-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var title = document.getElementById('title').value.trim();
+    var review = document.getElementById('review').value.trim();
+    var slug = editSlug || title.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    var date = params.get('date') || new Date().toISOString().split('T')[0];
+    var frontmatter = '---\ntitle: ' + title + '\ndate: ' + date + '\nrating: ' + currentRating + '\n';
+
+    if (currentType === 'book') {
+      var author = document.getElementById('author').value.trim();
+      frontmatter += 'author: ' + author + '\n';
+    } else {
+      var playtime = document.getElementById('playtime').value.trim();
+      frontmatter += 'playtime: ' + playtime + '\n';
+    }
+
+    frontmatter += '---\n';
+    if (review) {
+      frontmatter += '\n' + review;
+    }
+
+    var folder = currentType === 'book' ? 'books' : 'games';
+    var url;
+    if (isEdit) {
+      url = 'https://github.com/XavierJp/Listes/edit/master/data/' + folder + '/' + slug + '.md';
+    } else {
+      url = 'https://github.com/XavierJp/Listes/new/master/data/' + folder
+        + '?filename=' + encodeURIComponent(slug + '.md')
+        + '&value=' + encodeURIComponent(frontmatter);
+    }
+
+    window.open(url, '_blank');
+  });
+})();
+</script>
