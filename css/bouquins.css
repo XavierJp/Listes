@@ -44,7 +44,13 @@ body > div.footer {
   justify-content: space-between;
   align-items: center;
 }
-.footer-add {
+.footer-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.footer-add,
+.footer-edit {
   padding: 4px 6px;
   display: inline-flex;
 }
@@ -133,22 +139,21 @@ ul li .date em {
 }
 
 @media screen and (min-width: 0px) and (max-width: 600px) {
-  ul li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .date-and-rating {
-    width: 100%;
-    justify-content: space-between;
-    font-size: 0.9rem;
-  }
-
   ul li .title h2 {
-    margin: 20px 0 3px;
+    font-size: 0.9rem;
+    margin: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  ul li .date em {
-    font-size: 0.8rem;
+  ul li .date {
+    display: none;
+  }
+
+  .rating-system svg {
+    height: 12px;
+    width: 12px;
   }
 }
 
@@ -203,11 +208,6 @@ h1.bouquin {
 .content p {
   font-size: 1rem;
 }
-.edit-link {
-  margin-top: 30px;
-  font-size: 0.8rem;
-}
-
 /* Review form */
 .review-form {
   margin-top: 10px;
@@ -232,13 +232,14 @@ h1.bouquin {
   font-family: "Lora", serif;
   font-size: 1rem;
   padding: 10px;
-  border: 1px solid #001f39;
+  border: 1px dashed #001f39;
   border-radius: 4px;
   background: #fff;
   color: #001f39;
 }
 .form-group textarea {
   resize: vertical;
+  min-height: 120px;
 }
 .toggle-group {
   display: flex;
@@ -249,7 +250,7 @@ h1.bouquin {
   font-family: "Lora", serif;
   font-size: 1rem;
   padding: 10px;
-  border: 1px solid #001f39;
+  border: 1px dashed #001f39;
   background: #fff;
   color: #001f39;
   cursor: pointer;
@@ -289,7 +290,7 @@ h1.bouquin {
   padding: 12px;
   background: #001f39;
   color: #fff;
-  border: none;
+  border: 1px dashed #fff;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
