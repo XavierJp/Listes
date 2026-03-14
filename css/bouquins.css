@@ -196,3 +196,90 @@ h1.bouquin {
 .content p {
   font-size: 1rem;
 }
+
+/* Review form */
+.review-form {
+  margin-top: 10px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.form-group label .optional {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #001f39;
+  border-radius: 4px;
+  background: #fff;
+  color: #001f39;
+}
+.form-group textarea {
+  resize: vertical;
+}
+.toggle-group {
+  display: flex;
+  gap: 0;
+}
+.toggle-btn {
+  flex: 1;
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #001f39;
+  background: #fff;
+  color: #001f39;
+  cursor: pointer;
+}
+.toggle-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.toggle-btn:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+.toggle-btn.active {
+  background: #001f39;
+  color: #fff;
+}
+.star-rating {
+  display: flex;
+  gap: 4px;
+}
+.star {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.star.selected {
+  color: #001f39;
+}
+.submit-btn {
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 100%;
+  padding: 12px;
+  background: #001f39;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
