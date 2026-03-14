@@ -38,7 +38,7 @@ body > div.footer {
   margin-top: 20px;
   height: 40px;
   padding-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   border-top: 1px dashed #001f39;
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 /* home */
@@ -130,7 +130,7 @@ ul li .title {
   min-width: 0;
 }
 ul li .title h2 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -138,13 +138,13 @@ ul li .title h2 {
 }
 ul li .date em {
   padding-right: 25px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-style: normal;
 }
 
 @media screen and (min-width: 0px) and (max-width: 600px) {
   ul li .title h2 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin: 8px 0;
     white-space: nowrap;
     overflow: hidden;
@@ -185,13 +185,13 @@ ul li .date em {
 
 /* Page Bouquin */
 .menu {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin: 40px 0 0 0;
 }
 
 .sub-header {
   display: flex;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   border-top: 1px solid #001f39;
   border-bottom: 1px solid #001f39;
   align-items: center;
@@ -209,9 +209,6 @@ h1.bouquin {
   margin-bottom: 20px;
 }
 
-.content p {
-  font-size: 1rem;
-}
 /* Review form */
 .review-form {
   margin-top: 10px;
@@ -221,13 +218,13 @@ h1.bouquin {
 }
 .form-group label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 .form-group label .optional {
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 .form-group input[type="text"],
 .form-group textarea {
