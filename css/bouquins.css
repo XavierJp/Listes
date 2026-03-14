@@ -40,6 +40,13 @@ body > div.footer {
   padding-top: 10px;
   font-size: 0.9rem;
   border-top: 1px dashed #001f39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-add {
+  padding: 4px 6px;
+  display: inline-flex;
 }
 
 p {
@@ -195,6 +202,10 @@ h1.bouquin {
 
 .content p {
   font-size: 1rem;
+}
+.edit-link {
+  margin-top: 30px;
+  font-size: 0.8rem;
 }
 
 /* Review form */

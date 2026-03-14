@@ -2,13 +2,8 @@
 layout: shape.liquid
 ---
 
-<div class="home">
-  <h1>Ajouter</h1>
-  <span>
-    <a href="/jeux" title="jeux video"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z"/></svg></a>
-    <a href="/bouquins" title="lectures"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg></a>
-  </span>
-</div>
+<div class="menu"><a href="/">← retour à la liste</a></div>
+<h1 class="bouquin" id="form-title">Ajouter</h1>
 
 <form id="review-form" class="review-form">
   <div class="form-group">
@@ -51,25 +46,39 @@ layout: shape.liquid
     <textarea id="review" name="review" rows="4" placeholder="Quelques mots sur cette lecture / ce jeu..."></textarea>
   </div>
 
-  <button type="submit" class="submit-btn">Ouvrir dans GitHub</button>
+  <button type="submit" class="submit-btn" id="submit-btn">Ouvrir dans GitHub</button>
 </form>
 
 <script>
 (function() {
-  var currentType = 'book';
-  var currentRating = 3;
+  var params = new URLSearchParams(window.location.search);
+  var isEdit = params.get('edit') === '1';
+  var editSlug = params.get('slug') || '';
+  var currentType = params.get('type') || 'book';
+  var currentRating = parseInt(params.get('rating')) || 3;
+
+  // Update page title for edit mode
+  if (isEdit) {
+    document.getElementById('form-title').textContent = 'Modifier';
+    document.getElementById('submit-btn').textContent = 'Modifier dans GitHub';
+  }
 
   // Type toggle
   var toggleBtns = document.querySelectorAll('.toggle-btn');
+  function setType(type) {
+    currentType = type;
+    toggleBtns.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-type') === type);
+    });
+    document.getElementById('author-group').style.display = type === 'book' ? '' : 'none';
+    document.getElementById('playtime-group').style.display = type === 'game' ? '' : 'none';
+  }
   toggleBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      toggleBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      currentType = btn.getAttribute('data-type');
-      document.getElementById('author-group').style.display = currentType === 'book' ? '' : 'none';
-      document.getElementById('playtime-group').style.display = currentType === 'game' ? '' : 'none';
+      setType(btn.getAttribute('data-type'));
     });
   });
+  setType(currentType);
 
   // Star rating
   var stars = document.querySelectorAll('.star');
@@ -85,19 +94,28 @@ layout: shape.liquid
       updateStars(parseInt(s.getAttribute('data-value')));
     });
   });
-  updateStars(3);
+  updateStars(currentRating);
+
+  // Pre-fill fields in edit mode
+  if (isEdit) {
+    if (params.get('title')) document.getElementById('title').value = params.get('title');
+    if (params.get('author')) document.getElementById('author').value = params.get('author');
+    if (params.get('playtime')) document.getElementById('playtime').value = params.get('playtime');
+    if (params.get('review')) document.getElementById('review').value = params.get('review');
+  }
 
   // Form submit
   document.getElementById('review-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var title = document.getElementById('title').value.trim();
     var review = document.getElementById('review').value.trim();
-    var slug = title.toLowerCase()
+    var slug = editSlug || title.toLowerCase()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
 
-    var frontmatter = '---\ntitle: ' + title + '\ndate: ' + new Date().toISOString().split('T')[0] + '\nrating: ' + currentRating + '\n';
+    var date = params.get('date') || new Date().toISOString().split('T')[0];
+    var frontmatter = '---\ntitle: ' + title + '\ndate: ' + date + '\nrating: ' + currentRating + '\n';
 
     if (currentType === 'book') {
       var author = document.getElementById('author').value.trim();
@@ -113,9 +131,14 @@ layout: shape.liquid
     }
 
     var folder = currentType === 'book' ? 'books' : 'games';
-    var url = 'https://github.com/XavierJp/Listes/new/master/data/' + folder
-      + '?filename=' + encodeURIComponent(slug + '.md')
-      + '&value=' + encodeURIComponent(frontmatter);
+    var url;
+    if (isEdit) {
+      url = 'https://github.com/XavierJp/Listes/edit/master/data/' + folder + '/' + slug + '.md';
+    } else {
+      url = 'https://github.com/XavierJp/Listes/new/master/data/' + folder
+        + '?filename=' + encodeURIComponent(slug + '.md')
+        + '&value=' + encodeURIComponent(frontmatter);
+    }
 
     window.open(url, '_blank');
   });
